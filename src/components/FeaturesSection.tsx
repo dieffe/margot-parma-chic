@@ -1,25 +1,25 @@
-import { MapPin, Car, Building2, Star } from "lucide-react";
+import { MapPin, Bus, Building2, Landmark } from "lucide-react";
 
 const features = [
   {
     icon: Building2,
-    title: "Nel Centro Storico",
-    description: "Un appartamento elegante nel cuore di Parma, circondato da storia e cultura",
+    title: "La 'Piccola Parigi' d'Italia",
+    description: "Definita la 'Piccola Parigi' d'Italia, Parma affascina con i suoi bistrot, le boutique eleganti e quell'atmosfera raffinata tipica dei quartieri storici.",
   },
   {
     icon: MapPin,
-    title: "Posizione Strategica",
-    description: "A pochi passi da Piazza Duomo, Via Farini e i principali monumenti della città",
+    title: "Posizione",
+    description: "5 minuti a piedi dal centro e da tutte le principali attrazioni della città.",
   },
   {
-    icon: Star,
-    title: "Comfort & Stile",
-    description: "Arredamento curato nei dettagli che unisce il fascino storico al comfort moderno",
+    icon: Bus,
+    title: "Mezzi Pubblici",
+    description: "Mezzi pubblici per raggiungere aeroporto, stazione, ospedale, campus universitario e Fiere di Parma.",
   },
   {
-    icon: Car,
-    title: "Facile da Raggiungere",
-    description: "Ben collegato e comodo da raggiungere da stazione e autostrada",
+    icon: Landmark,
+    title: "Curiosità",
+    description: "La zona è famosa per essere stata teatro della resistenza durante le Barricate del 1922.",
   },
 ];
 
@@ -31,8 +31,10 @@ const FeaturesSection = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Perché Scegliere Margot76?
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto">
-            Scopri cosa rende il nostro appartamento la scelta perfetta per il tuo soggiorno a Parma
+          <p className="font-body text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Nel centro storico di Parma, un raffinato appartamento ricavato in un antico monastero:
+            fascino autentico tra archi e mattoni a vista, con un'ospitalità che ti farà sentire
+            subito a casa. Qui la vacanza inizia appena varchi la porta.
           </p>
         </div>
 

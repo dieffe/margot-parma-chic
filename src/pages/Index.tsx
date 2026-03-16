@@ -1,20 +1,17 @@
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import DiscoverSection from "@/components/DiscoverSection";
 import CtaSection from "@/components/CtaSection";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <Layout>
       <HeroSection />
       <FeaturesSection />
       <DiscoverSection />
       <CtaSection />
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
