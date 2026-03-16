@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Partner — Margot76{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Partner</h1>
+      <p class="font-body text-muted-foreground max-w-2xl mx-auto">
+        I nostri partner selezionati per rendere il tuo soggiorno a Parma un'esperienza indimenticabile
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {% set partners = [
+        ("Ristorante Parizzi", "Ristorazione", "Cucina parmigiana d'eccellenza nel cuore del centro storico."),
+        ("Prosciutteria Parma", "Gastronomia", "Il meglio dei salumi e formaggi del territorio parmense."),
+        ("Parma City Tour", "Esperienze", "Tour guidati alla scoperta dei tesori artistici e culturali di Parma."),
+        ("NCC Parma", "Trasporti", "Servizio di noleggio con conducente per trasferimenti e spostamenti."),
+      ] %}
+      {% for name, category, desc in partners %}
+      <div class="bg-card rounded-lg p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+        <div class="flex items-start gap-4">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-terracotta-light flex-shrink-0">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <span class="font-body text-xs uppercase tracking-wider text-primary font-bold">{{ category }}</span>
+            <h3 class="font-display text-xl font-semibold text-foreground mt-1 mb-2">{{ name }}</h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">{{ desc }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-16 text-center bg-card rounded-lg p-8 md:p-12 border border-border">
+      <h2 class="font-display text-2xl font-bold text-foreground mb-4">Vuoi diventare partner?</h2>
+      <p class="font-body text-muted-foreground max-w-xl mx-auto mb-6">
+        Se hai un'attività a Parma e vuoi collaborare con Margot76, contattaci per scoprire le opportunità di partnership.
+      </p>
+      <a href="mailto:Margotbixio76@gmail.com"
+         class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded font-body font-bold tracking-wide hover:opacity-90 transition-opacity">
+        Contattaci
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Contatti — Margot76{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Contatti</h1>
+      <p class="font-body text-muted-foreground max-w-2xl mx-auto">
+        Prenota il tuo soggiorno o contattaci per qualsiasi informazione
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Info -->
+      <div>
+        <div class="space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-terracotta-light flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-foreground mb-1">Indirizzo</h3>
+              <p class="font-body text-muted-foreground">Via Bixio 76, 43125 Parma, Italy</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-terracotta-light flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-foreground mb-1">Telefono</h3>
+              <a href="tel:+393534827028" class="font-body text-muted-foreground hover:text-primary transition-colors">+39 353 4827028</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-terracotta-light flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-foreground mb-1">Email</h3>
+              <a href="mailto:Margotbixio76@gmail.com" class="font-body text-muted-foreground hover:text-primary transition-colors">Margotbixio76@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="font-display text-xl font-semibold text-foreground mb-4">Prenota il Tuo Soggiorno</h3>
+          <p class="font-body text-muted-foreground mb-6 leading-relaxed">
+            Contattaci via email o telefono per verificare la disponibilità e prenotare
+            il tuo soggiorno a Margot76. Saremo felici di accoglierti nel cuore di Parma.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="mailto:Margotbixio76@gmail.com"
+               class="bg-primary text-primary-foreground px-8 py-3 rounded font-body font-bold tracking-wide hover:opacity-90 transition-opacity text-center">
+              Prenota Ora
+            </a>
+            <a href="tel:+393534827028"
+               class="border border-primary text-primary px-8 py-3 rounded font-body font-bold tracking-wide hover:bg-primary/5 transition-colors text-center">
+              Chiamaci
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="rounded-lg overflow-hidden shadow-lg border border-border h-[400px] lg:h-full min-h-[400px]">
+        <iframe
+          title="Margot76 - Via Bixio 76, Parma"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2834.5!2d10.326!3d44.801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDQ4JzAzLjYiTiAxMMKwMTknMzMuNiJF!5e0!3m2!1sit!2sit!4v1234567890"
+          width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

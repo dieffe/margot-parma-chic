@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}Eventi — Margot76{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Eventi</h1>
+      <p class="font-body text-muted-foreground max-w-2xl mx-auto">
+        Parma e dintorni: fiere, festival, concerti e sport. Tanti motivi per visitare la nostra città.
+      </p>
+    </div>
+
+    <!-- Fiere di Parma -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-terracotta-light">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground">Fiere di Parma</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% set fiere = [
+          ("Mercante in Fiera — Primavera", "7 - 15 Marzo 2026"),
+          ("Parma Bagarre", "9 - 10 Maggio 2026"),
+          ("Salone del Camper", "12 - 20 Settembre 2026"),
+          ("Mercante in Fiera — Autunno", "3 - 11 Ottobre 2026"),
+          ("Cibus Tec", "27 - 30 Ottobre 2026"),
+        ] %}
+        {% for nome, date in fiere %}
+        <div class="bg-card rounded-lg p-6 border border-border hover:border-primary/30 hover:shadow-md transition-all">
+          <h3 class="font-display text-lg font-semibold text-foreground mb-2">{{ nome }}</h3>
+          <p class="font-body text-sm text-muted-foreground flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+            {{ date }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Parma Calcio & Festival Verdi -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-card rounded-lg p-8 border border-border">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-terracotta-light">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15l-2 5l9-11h-5l2-5l-9 11h5z"/></svg>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-foreground">Parma Calcio</h2>
+        </div>
+        <p class="font-body text-muted-foreground leading-relaxed">
+          Segui le partite del Parma Calcio allo Stadio Ennio Tardini, a soli 20 minuti a piedi da Margot76.
+          Vivi l'emozione del calcio italiano nel cuore dell'Emilia.
+        </p>
+      </div>
+
+      <div class="bg-card rounded-lg p-8 border border-border">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-terracotta-light">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-foreground">Festival Verdi</h2>
+        </div>
+        <p class="font-body text-muted-foreground leading-relaxed mb-2">
+          Il celebre Festival dedicato a Giuseppe Verdi, con opere, concerti e spettacoli nei teatri storici di Parma.
+        </p>
+        <p class="font-body text-sm text-primary font-semibold flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+          1 - 25 Ottobre 2026
+        </p>
+      </div>
+    </div>
+
+    <!-- Concerti raggiungibili in treno -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-terracotta-light">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+        </div>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground">Concerti da Raggiungere in Treno</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% set concerti = [
+          ("Metallica", "Bologna — Stadio Dall'Ara", "3 Giugno 2026"),
+          ("Cesare Cremonini", "Milano — Ippodromo Snai La Maura", "10 Giugno 2026"),
+          ("Tiziano Ferro", "Bologna — Stadio Dall'Ara", "14 Giugno 2026"),
+          ("Achille Lauro", "Milano — San Siro", "15 Giugno 2026"),
+          ("Maroon 5", "Milano — San Siro", "25 Giugno 2026"),
+          ("Max Pezzali", "Bologna — Stadio Dall'Ara", "27 - 28 Giugno 2026"),
+          ("Iron Maiden", "Milano", "Data da definire"),
+        ] %}
+        {% for artista, luogo, data in concerti %}
+        <div class="bg-card rounded-lg p-6 border border-border hover:border-primary/30 hover:shadow-md transition-all">
+          <h3 class="font-display text-lg font-semibold text-foreground mb-2">{{ artista }}</h3>
+          <p class="font-body text-sm text-muted-foreground flex items-center gap-2 mb-1">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            {{ luogo }}
+          </p>
+          <p class="font-body text-sm text-primary font-semibold flex items-center gap-2">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+            {{ data }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Hellwatt Festival -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-terracotta-light">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+        </div>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground">Hellwatt Festival 2026 — Campovolo</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {% set hellwatt = [
+          ("4 Luglio 2026", "Line-up da annunciare"),
+          ("5 Luglio 2026", "The Chainsmokers, Rita Ora, Ozuna, Nicky Jam, Afrojack, Dimitri Vegas & Like Mike, DJ Snake"),
+          ("11 Luglio 2026", "Swedish House Mafia, Martin Garrix, Alok, Benny Benassi, Clean Bandit"),
+          ("17 Luglio 2026", "Travis Scott"),
+          ("18 Luglio 2026", "Kanye West"),
+        ] %}
+        {% for data, lineup in hellwatt %}
+        <div class="bg-card rounded-lg p-6 border border-border hover:border-primary/30 hover:shadow-md transition-all">
+          <p class="font-body text-sm text-primary font-semibold flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+            {{ data }}
+          </p>
+          <p class="font-body text-sm text-muted-foreground">{{ lineup }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="bg-olive-light rounded-lg p-6 border border-border">
+        <p class="font-body text-sm text-foreground/80 flex items-start gap-3">
+          <svg class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <span>
+            <strong>Nota per i viaggiatori da Parma:</strong> La RCF Arena è situata a pochi minuti dalla stazione
+            di Reggio Emilia (circa 15-20 minuti di treno regionale da Parma). Per i grandi eventi sono solitamente
+            previsti treni speciali e navette di collegamento dalla stazione all'arena.
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

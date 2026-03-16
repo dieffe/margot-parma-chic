@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Galleria — Margot76{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Galleria</h1>
+      <p class="font-body text-muted-foreground max-w-2xl mx-auto">
+        Scopri gli ambienti di Margot76: un raffinato appartamento ricavato in un antico monastero nel cuore di Parma
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for photo in photos %}
+      <div class="group relative overflow-hidden rounded-lg cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300"
+           data-gallery-index="{{ loop.index0 }}"
+           data-gallery-src="{{ photo.src }}"
+           data-gallery-alt="{{ photo.alt }}">
+        <img src="{{ photo.src }}" alt="{{ photo.alt }}"
+             class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox-overlay" class="lightbox-overlay">
+  <button id="lightbox-close" class="lightbox-btn lightbox-close">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+  <button id="lightbox-prev" class="lightbox-btn lightbox-prev">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="" />
+  <button id="lightbox-next" class="lightbox-btn lightbox-next">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <span id="lightbox-counter" class="lightbox-counter"></span>
+</div>
+{% endblock %}
