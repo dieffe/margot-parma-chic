@@ -55,14 +55,6 @@
 
       <!-- Desktop nav -->
       <div class="hidden lg:flex items-center gap-6">
-        {% set nav_items = [
-          ("Home", "home"),
-          ("Galleria", "galleria"),
-          ("Eventi", "eventi"),
-          ("Informazioni Utili", "informazioni_utili"),
-          ("Partner", "partner"),
-          ("Contatti", "contatti"),
-        ] %}
         {% for label, endpoint in nav_items %}
         <a href="{{ url_for(endpoint) }}"
            class="font-body text-sm tracking-wide transition-colors {{ 'text-primary font-bold' if request.endpoint == endpoint else 'text-foreground/80 hover:text-primary' }}">

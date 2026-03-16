@@ -6,8 +6,18 @@ app = Flask(__name__)
 
 
 @app.context_processor
-def inject_now():
-    return {"now": datetime.now()}
+def inject_globals():
+    return {
+        "now": datetime.now(),
+        "nav_items": [
+            ("Home", "home"),
+            ("Galleria", "galleria"),
+            ("Eventi", "eventi"),
+            ("Informazioni Utili", "informazioni_utili"),
+            ("Partner", "partner"),
+            ("Contatti", "contatti"),
+        ],
+    }
 
 
 @app.route("/")
