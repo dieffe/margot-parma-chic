@@ -20,7 +20,7 @@ def galleria():
     photos = [
         {
             "id": i,
-            "src": f"https://placehold.co/800x600/d4a574/fff?text=Margot76+%23{str(i).zfill(2)}",
+            "src": f"/static/images/{str(i).zfill(2)}.jpeg",
             "alt": f"Margot76 - Foto {str(i).zfill(2)}",
         }
         for i in range(1, 13)
