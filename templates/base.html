@@ -4,9 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}Margot76 — Appartamento nel Centro Storico di Parma{% endblock %}</title>
-  <meta name="description" content="Margot76 — Un raffinato appartamento nel centro storico di Parma, ricavato in un antico monastero." />
+  <meta name="description" content="{% block meta_description %}Margot76: appartamento per vacanze nel centro storico di Parma (Via Bixio 76). Antico monastero, vicino a Pilotta e Teatro Regio. Prenota il tuo soggiorno in Emilia-Romagna.{% endblock %}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Margot76" />
+  <link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ request.path or '/' }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Margot76" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="{{ self.title() }}" />
+  <meta property="og:description" content="{{ self.meta_description() }}" />
+  <meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ request.path or '/' }}" />
+  <meta property="og:image" content="{% block og_image %}{{ absolute_static('images/hero-parma.png') }}{% endblock %}" />
+  <meta property="og:image:alt" content="{% block og_image_alt %}Parma — vista panoramica dal centro storico{% endblock %}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ self.title() }}" />
+  <meta name="twitter:description" content="{{ self.meta_description() }}" />
   <link rel="icon" href="{{ url_for('static', filename='images/margot76-logo.png') }}" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/margot76-logo.png') }}" />
+  <meta name="theme-color" content="hsl(18 65% 45%)" />
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+  {% set _ld = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Margot76",
+    "description": "Appartamento per vacanze nel centro storico di Parma, ricavato in un antico monastero in Via Bixio 76.",
+    "url": absolute_url('home'),
+    "image": absolute_static('images/hero-parma.png'),
+    "telephone": "+39-353-4827028",
+    "email": "Margotbixio76@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Bixio 76",
+      "addressLocality": "Parma",
+      "postalCode": "43125",
+      "addressRegion": "PR",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.7996,
+      "longitude": 10.3291
+    },
+    "priceRange": "$$"
+  } %}
+  <script type="application/ld+json">{{ _ld | tojson | safe }}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {

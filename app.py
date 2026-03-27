@@ -1,6 +1,7 @@
 from datetime import datetime
+from xml.sax.saxutils import escape
 
-from flask import Flask, render_template
+from flask import Flask, Response, render_template, request, url_for
 
 app = Flask(__name__)
 
@@ -18,6 +19,57 @@ def inject_globals():
             ("Contatti", "contatti"),
         ],
     }
+
+
+@app.template_global()
+def absolute_static(filename: str) -> str:
+    """Absolute URL for static assets (Open Graph images, etc.)."""
+    root = request.url_root.rstrip("/")
+    return root + url_for("static", filename=filename)
+
+
+@app.template_global()
+def absolute_url(endpoint: str, **values) -> str:
+    """Absolute URL for named routes (canonical, JSON-LD)."""
+    return url_for(endpoint, _external=True, **values)
+
+
+def _sitemap_urls():
+    """(endpoint, changefreq, priority) for public HTML routes."""
+    return [
+        ("home", "weekly", "1.0"),
+        ("galleria", "monthly", "0.9"),
+        ("eventi", "weekly", "0.8"),
+        ("informazioni_utili", "monthly", "0.8"),
+        ("partner", "monthly", "0.7"),
+        ("contatti", "monthly", "0.9"),
+    ]
+
+
+@app.route("/robots.txt")
+def robots_txt():
+    sitemap_url = request.url_root.rstrip("/") + url_for("sitemap_xml")
+    body = f"User-agent: *\nAllow: /\n\nSitemap: {sitemap_url}\n"
+    return Response(body, mimetype="text/plain; charset=utf-8")
+
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    root = request.url_root.rstrip("/")
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for endpoint, changefreq, priority in _sitemap_urls():
+        loc = root + url_for(endpoint)
+        lines.append("  <url>")
+        lines.append(f"    <loc>{escape(loc)}</loc>")
+        lines.append(f"    <changefreq>{changefreq}</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    xml = "\n".join(lines) + "\n"
+    return Response(xml, mimetype="application/xml; charset=utf-8")
 
 
 @app.route("/")
