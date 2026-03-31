@@ -1,4 +1,5 @@
-from datetime import datetime
+import os
+from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
 from flask import Flask, Response, render_template, request, url_for
@@ -53,9 +54,20 @@ def robots_txt():
     return Response(body, mimetype="text/plain; charset=utf-8")
 
 
+def _sitemap_lastmod_w3c() -> str:
+    """W3C Datetime for <lastmod> (Google Search Central). Override with SITEMAP_LAST_MOD=YYYY-MM-DD."""
+    override = os.environ.get("SITEMAP_LAST_MOD", "").strip()
+    if override:
+        return f"{override}T00:00:00+00:00"
+    d = datetime.now(timezone.utc).date().isoformat()
+    return f"{d}T00:00:00+00:00"
+
+
 @app.route("/sitemap.xml")
 def sitemap_xml():
+    """XML sitemap for Google Search Console (https://www.sitemaps.org/protocol.html)."""
     root = request.url_root.rstrip("/")
+    lastmod = _sitemap_lastmod_w3c()
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -64,12 +76,15 @@ def sitemap_xml():
         loc = root + url_for(endpoint)
         lines.append("  <url>")
         lines.append(f"    <loc>{escape(loc)}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append(f"    <changefreq>{changefreq}</changefreq>")
         lines.append(f"    <priority>{priority}</priority>")
         lines.append("  </url>")
     lines.append("</urlset>")
     xml = "\n".join(lines) + "\n"
-    return Response(xml, mimetype="application/xml; charset=utf-8")
+    resp = Response(xml, mimetype="application/xml; charset=utf-8")
+    resp.headers["Cache-Control"] = "public, max-age=3600"
+    return resp
 
 
 @app.route("/")
