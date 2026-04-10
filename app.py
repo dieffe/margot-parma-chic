@@ -15,6 +15,7 @@ def inject_globals():
             ("Home", "home"),
             ("Galleria", "galleria"),
             ("Eventi", "eventi"),
+            ("Esperienze", "esperienze"),
             ("Informazioni Utili", "informazioni_utili"),
             ("Partner", "partner"),
             ("Contatti", "contatti"),
@@ -41,6 +42,7 @@ def _sitemap_urls():
         ("home", "weekly", "1.0"),
         ("galleria", "monthly", "0.9"),
         ("eventi", "weekly", "0.8"),
+        ("esperienze", "monthly", "0.8"),
         ("informazioni_utili", "monthly", "0.8"),
         ("partner", "monthly", "0.7"),
         ("contatti", "monthly", "0.9"),
@@ -108,6 +110,11 @@ def galleria():
 @app.route("/eventi")
 def eventi():
     return render_template("eventi.html")
+
+
+@app.route("/esperienze")
+def esperienze():
+    return render_template("esperienze.html")
 
 
 @app.route("/informazioni-utili")
