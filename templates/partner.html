@@ -14,12 +14,12 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {% set partners = [
-        ("Ristorante Parizzi", "Ristorazione", "Cucina parmigiana d'eccellenza nel cuore del centro storico."),
-        ("Prosciutteria Parma", "Gastronomia", "Il meglio dei salumi e formaggi del territorio parmense."),
-        ("Parma City Tour", "Esperienze", "Tour guidati alla scoperta dei tesori artistici e culturali di Parma."),
-        ("NCC Parma", "Trasporti", "Servizio di noleggio con conducente per trasferimenti e spostamenti."),
+        ("Osteria dei Mascalzoni", "Ristorazione", "Osteria parmigiana per assaporare la tradizione in tavola.", "https://osteriadeimascalzoni.it/"),
+        ("Caseificio Ugolotti", "Gastronomia", "Gastronomia e prodotti caseari del territorio parmense.", "https://www.caseificiougolotti.com/?utm_source=GBP%20&utm_medium=info&utm_campaign=site"),
+        ("Parma City Tour", "Esperienze", "Tour guidati alla scoperta dei tesori artistici e culturali di Parma.", none),
+        ("NCC Parma", "Trasporti", "Servizio di noleggio con conducente per trasferimenti e spostamenti.", none),
       ] %}
-      {% for name, category, desc in partners %}
+      {% for name, category, desc, url in partners %}
       <div class="bg-card rounded-lg p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
         <div class="flex items-start gap-4">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-terracotta-light flex-shrink-0">
@@ -29,6 +29,14 @@
             <span class="font-body text-xs uppercase tracking-wider text-primary font-bold">{{ category }}</span>
             <h3 class="font-display text-xl font-semibold text-foreground mt-1 mb-2">{{ name }}</h3>
             <p class="font-body text-sm text-muted-foreground leading-relaxed">{{ desc }}</p>
+            {% if url %}
+            <p class="mt-3">
+              <a href="{{ url }}" target="_blank" rel="noopener noreferrer"
+                 class="font-body text-sm text-primary font-semibold hover:underline">
+                Visita il sito
+              </a>
+            </p>
+            {% endif %}
           </div>
         </div>
       </div>
