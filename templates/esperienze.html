@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Esperienze — Margot76{% endblock %}
+{% block meta_description %}Esperienze enogastronomiche e viaggi nella Food Valley da Parma: scopri tour e proposte con il nostro partner Food Valley Travel.{% endblock %}
+
+{% block content %}
+<section class="pt-32 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Esperienze</h1>
+      <p class="font-body text-muted-foreground max-w-2xl mx-auto">
+        Arricchisci il tuo soggiorno a Parma con itinerari enogastronomici e scoperte nella Food Valley
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-card rounded-lg p-8 md:p-12 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+        <div class="flex flex-col md:flex-row md:items-start gap-6">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terracotta-light flex-shrink-0 mx-auto md:mx-0">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          </div>
+          <div class="text-center md:text-left">
+            <span class="font-body text-xs uppercase tracking-wider text-primary font-bold">Partner esperienze</span>
+            <h2 class="font-display text-2xl font-semibold text-foreground mt-2 mb-4">Food Valley Travel</h2>
+            <p class="font-body text-muted-foreground leading-relaxed mb-6">
+              Viaggi ed esperienze dedicate al territorio parmense e alla Food Valley: degustazioni, cantine, caseifici e itinerari su misura per chi vuole vivere Parma e l'Emilia a tavola e in strada.
+            </p>
+            <a href="https://foodvalleytravel.com/" target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded font-body font-bold tracking-wide hover:opacity-90 transition-opacity">
+              Visita Food Valley Travel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
